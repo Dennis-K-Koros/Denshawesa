@@ -1,99 +1,245 @@
 package project;
 
+
+import com.sun.tools.javac.Main;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SignUp {
+
     JFrame frame;
-    JTextField usernameField;
-    JPasswordField passwordField;
-    JLabel titleLabel,usernameLabel,passwordLabel;
-    JPanel bottomPanel;
-    JButton btnLog,btnSignUp,btnExit;
+    JPanel panel;
+    JTextField tfName,tfEmail,tfAddress,tfPhone,tfNatId,tfDob;
+    JPasswordField pfPassword,pfConfirm;
+    JLabel jlName,jlEmail,jlAddress,jlPhone,jlPassword,jlConfirm,jlDOB,jlNatId;
+    JButton btnOk,btnCancel,btnClear;
     Font myFont = new Font("Arial",Font.PLAIN,16);
 
-    public SignUp() {
-        frame = new JFrame("DenShaWesa Online Shop");
+    SignUp(){
+        frame = new JFrame("Sign Up");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 450);
+        frame.setSize(650,650);
         frame.setLayout(null);
 
+        jlName = new JLabel("FullName");
+        jlName.setBounds(50,50,150,25);
+        jlName.setFont(myFont);
 
-        titleLabel = new JLabel("Denshawesa OnlineShop");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 32));
-        titleLabel.setBounds(25,15,450,75);
+        jlPhone = new JLabel("Phone Number");
+        jlPhone.setBounds(50,100,150,25);
+        jlPhone.setFont(myFont);
 
+        jlEmail = new JLabel("Email Address");
+        jlEmail.setBounds(50,150,150,25);
+        jlEmail.setFont(myFont);
 
-        usernameLabel = new JLabel("Username:");
-        usernameLabel.setBounds(50,100,150,25);
-        usernameLabel.setFont(myFont);
+        jlAddress = new JLabel("Address");
+        jlAddress.setBounds(50,200,150,25);
+        jlAddress.setFont(myFont);
 
-        passwordLabel = new JLabel("Password:");
-        passwordLabel.setBounds(50,150,150,25);
-        passwordLabel.setFont(myFont);
+        jlDOB = new JLabel("Date Of Birth");
+        jlDOB.setBounds(50,250,150,25);
+        jlDOB.setFont(myFont);
 
-        usernameField = new JTextField();
-        usernameField.setBounds(200,100,150,25);
-        usernameField.setFont(myFont);
+        jlNatId = new JLabel("National ID");
+        jlNatId.setBounds(50,300,150,25);
+        jlNatId.setFont(myFont);
 
-        passwordField = new JPasswordField();
-        passwordField.setBounds(200,150,150,25);
-        passwordField.setFont(myFont);
+        jlPassword = new JLabel("Password");
+        jlPassword.setBounds(50,350,150,25);
+        jlPassword.setFont(myFont);
 
-        btnLog = new JButton("SignIn");
-        btnLog.setFocusable(false);
-        btnLog.addActionListener(new ActionListener() {
+        jlConfirm = new JLabel("Confirm Password");
+        jlConfirm.setBounds(50,400,150,25);
+        jlConfirm.setFont(myFont);
+
+        tfName = new JTextField();
+        tfName.setBounds(200,50,150,25);
+        tfName.setFont(myFont);
+
+        tfPhone = new JTextField();
+        tfPhone.setBounds(200,100,150,25);
+        tfPhone.setFont(myFont);
+
+        tfEmail = new JTextField();
+        tfEmail.setBounds(200,150,150,25);
+        tfEmail.setFont(myFont);
+
+        tfAddress = new JTextField();
+        tfAddress.setBounds(200,200,150,25);
+        tfAddress.setFont(myFont);
+
+        tfDob = new JTextField("yyyy-mm-dd");
+        tfDob.setBounds(200,250,150,25);
+        tfDob.setFont(myFont);
+
+        tfNatId = new JTextField();
+        tfNatId.setBounds(200,300,150,25);
+        tfNatId.setFont(myFont);
+
+        pfPassword = new JPasswordField();
+        pfPassword.setBounds(200,350,150,25);
+
+        pfConfirm = new JPasswordField();
+        pfConfirm.setBounds(200,400,150,25);
+
+        btnOk = new JButton("Ok");
+        btnOk.setFont(myFont);
+        btnOk.setFocusable(false);
+        btnOk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                registerUser();
+            }
+        });
+
+        btnCancel = new JButton("Cancel");
+        btnCancel.setFont(myFont);
+        btnCancel.setFocusable(false);
+        btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainMenu menu = new MainMenu();
+
             }
         });
 
-        btnSignUp = new JButton("SignUp");
-        btnSignUp.setFocusable(false);
-        btnSignUp.addActionListener(new ActionListener() {
+        btnClear = new JButton("Clear");
+        btnClear.setFont(myFont);
+        btnClear.setFocusable(false);
+        btnClear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                tfName.setText("");
+                tfEmail.setText("");
+                tfAddress.setText("");
+                tfPhone.setText("");
+                tfDob.setText("");
+                tfNatId.setText("");
+                pfPassword.setText("");
+                pfConfirm.setText("");
             }
         });
 
-        btnExit = new JButton("Exit");
-        btnExit.setFocusable(false);
-        btnExit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 frame.dispose();
-            }
-        });
 
-        bottomPanel = new JPanel();
-        bottomPanel.setBounds(50,250,300,25);
-        bottomPanel.setLayout(new GridLayout(1,3,10,10));
-        bottomPanel.add(btnLog);
-        bottomPanel.add(btnSignUp);
-        bottomPanel.add(btnExit);
 
-        frame.add(titleLabel);
-        frame.add(usernameLabel);
-        frame.add(usernameField);
-        frame.add(passwordLabel);
-        frame.add(passwordField);
-        frame.add(bottomPanel);
+        panel = new JPanel();
+        panel.setBounds(75,450,300,25);
+        panel.setLayout(new GridLayout(1,2,10,10));
+        panel.add(btnOk);
+        panel.add(btnClear);
+        panel.add(btnCancel);
 
+        frame.add(jlName);
+        frame.add(jlEmail);
+        frame.add(jlAddress);
+        frame.add(jlPhone);
+        frame.add(jlDOB);
+        frame.add(jlNatId);
+        frame.add(jlPassword);
+        frame.add(jlConfirm);
+        frame.add(tfName);
+        frame.add(tfAddress);
+        frame.add(tfEmail);
+        frame.add(tfPhone);
+        frame.add(tfDob);
+        frame.add(tfNatId);
+        frame.add(pfPassword);
+        frame.add(pfConfirm);
+        frame.add(panel);
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SignUp();
-            }
-        });
+    private void registerUser() {
+        String fullName = tfName.getText();
+        String email = tfEmail.getText();
+        String address = tfAddress.getText();
+        String phone = tfPhone.getText();
+        String dob = getDate(tfDob.getText());
+        String natId = tfNatId.getText();
+        String password = String.valueOf(pfPassword.getPassword());
+        String confirm = String.valueOf(pfConfirm.getPassword());
+
+        if (fullName.isEmpty() || email.isEmpty() || address.isEmpty() || phone.isEmpty() ||dob.isEmpty() ||natId.isEmpty() || password.isEmpty() || confirm.isEmpty()){
+            JOptionPane.showMessageDialog(null,
+                    "Please Enter All Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        if (!password.equals(confirm)){
+            JOptionPane.showMessageDialog(null,
+                    "Please Rewrite The Confirm Password",
+                    "Invalid Password",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        user = addUserToDatabase(fullName, email,address,phone,password,confirm,dob,natId);
+
     }
+
+    public User user;
+
+    private User addUserToDatabase(String fullName, String email, String address,String phone, String password,String confirm,String dob,String natId) {
+        User user = null;
+
+        try {
+            Connection conn = DbConnection.createDBConnection();
+
+            Statement stmt = conn.createStatement();
+            String sql = "INSERT INTO users(FullName,PhoneNumber,Email,Address,DOB,NationalId,password)"+
+                    "VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1,fullName);
+            preparedStatement.setString(2,phone);
+            preparedStatement.setString(3,email);
+            preparedStatement.setString(4,address);
+            preparedStatement.setString(5,dob);
+            preparedStatement.setString(6,natId);
+            preparedStatement.setString(7,password);
+
+
+            int addedRows = preparedStatement.executeUpdate();
+            if (addedRows>0){
+                user = new User();
+                user.fullName = fullName;
+                user.emailAddress = email;
+                user.address = address;
+                user.phoneNumber = phone;
+                user.password = password;
+                user.dob = dob;
+                user.natId = natId;
+            }
+
+            stmt.close();
+            conn.close();
+
+        } catch(SQLException ex){
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE,null,ex);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return user;
+
+    }
+
+    public String getDate(String db){
+        LocalDate date = LocalDate.parse(db, DateTimeFormatter.ISO_DATE);
+        String dob = String.valueOf(date);
+        return dob;
+    }
+
+
 }
+
 

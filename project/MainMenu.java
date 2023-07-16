@@ -16,16 +16,17 @@ public class MainMenu {
         frame.setSize(450, 450);
         frame.setLayout(null);
 
-        poBtn = new JButton("Pre-order");
+        poBtn = new JButton("Car Rental Page");
         poBtn.setFocusable(false);
         poBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Code to handle pre-order functionality goes here,anyone in the group can do it
+                frame.dispose();
+                CarRentalPage crp = new CarRentalPage();
             }
         });
 
-        orBtn = new JButton("Order");
+        orBtn = new JButton("Cars");
         orBtn.setFocusable(false);
         orBtn.addActionListener(new ActionListener() {
             @Override
@@ -34,7 +35,7 @@ public class MainMenu {
             }
         });
 
-        favBtn = new JButton("Favourites");
+        favBtn = new JButton("Customers");
         favBtn.setFocusable(false);
         favBtn.addActionListener(new ActionListener() {
             @Override
@@ -43,13 +44,11 @@ public class MainMenu {
             }
         });
 
-        traBtn = new JButton("Transactions");
+        traBtn = new JButton("Return");
         traBtn.setFocusable(false);
         traBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                Transactions trans = new Transactions();
                 // Code to handle transaction functionality goes here,anyone in the group can do it
             }
         });
