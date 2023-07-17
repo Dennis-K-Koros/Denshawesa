@@ -77,7 +77,7 @@ public class Login {
 
         if (user != null) {
             frame.dispose();
-            MainMenu mainMenu= new MainMenu();
+            MainMenu mainMenu = new MainMenu();
         } else {
             JOptionPane.showMessageDialog(null,
                     "Email or Password Invalid",
@@ -85,6 +85,7 @@ public class Login {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+
 }
 
 

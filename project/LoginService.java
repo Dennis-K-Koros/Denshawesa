@@ -6,8 +6,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoginService {
-    private static User loggedInUser;
+public class LoginService { private static User loggedInUser;
 
     public static User login(String email, String password) {
         User user = getAuthenticatedUser(email, password);
