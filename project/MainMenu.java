@@ -15,6 +15,7 @@ public class MainMenu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 450);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         poBtn = new JButton("Car Rental Page");
         poBtn.setFocusable(false);

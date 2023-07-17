@@ -20,6 +20,7 @@ public class Login {
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Login Page");
+        frame.setLocationRelativeTo(null);
 
 
         l1 = new JLabel("Login Page");

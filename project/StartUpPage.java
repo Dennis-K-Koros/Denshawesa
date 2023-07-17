@@ -14,13 +14,14 @@ public class StartUpPage {
 
     StartUpPage(){
         frame = new JFrame("Start Up Page");
-        frame.setSize(450,450);
+        frame.setSize(500,450);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         jlWelcome = new JLabel("Welcome to Denshewesa");
         jlWelcome.setFont(new Font("Arial",Font.BOLD,30));
-        jlWelcome.setBounds(75,100,350,50);
+        jlWelcome.setBounds(75,100,400,50);
 
         jlWelcome1 = new JLabel("Car Rental Application");
         jlWelcome1.setFont(new Font("Arial",Font.BOLD,30));

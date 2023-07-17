@@ -29,6 +29,7 @@ public class SignUp {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650,650);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         jlName = new JLabel("FullName");
         jlName.setBounds(50,50,150,25);

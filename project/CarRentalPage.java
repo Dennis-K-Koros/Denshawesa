@@ -29,6 +29,7 @@ public class CarRentalPage {
         frame.setSize(1100,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         makeLb = new JLabel("Car Make");
         makeLb.setBounds(200,35,125,35);
