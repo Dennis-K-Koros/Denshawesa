@@ -9,7 +9,7 @@ public class User {
     String password;
     String dob;
     String natId;
-    String role;
+    UserRole role;
 
     public String getFullName() {
         return fullName;
@@ -19,11 +19,11 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 
@@ -71,12 +71,11 @@ public class User {
 
     }
 
-    public User(String fullName, String emailAddress, String address, String phoneNumber, String password, String dob, String natId, String role) {
+    public User(String fullName, String emailAddress, String address, String phoneNumber, String dob, String natId, UserRole role) {
         this.fullName = fullName;
         this.emailAddress = emailAddress;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.password = password;
         this.dob = dob;
         this.natId = natId;
         this.role = role;

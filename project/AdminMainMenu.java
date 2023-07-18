@@ -1,16 +1,17 @@
 package project;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenu {
+public class AdminMainMenu {
     JFrame frame;
     JPanel panel;
     JButton poBtn,orBtn,favBtn,traBtn;
 
-    MainMenu(){
+    AdminMainMenu(){
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 450);
@@ -23,7 +24,7 @@ public class MainMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                CarRentalPage crp = new CarRentalPage();
+                AdminRentalPage arp = new AdminRentalPage();
             }
         });
 
@@ -68,3 +69,4 @@ public class MainMenu {
 
     }
 }
+
