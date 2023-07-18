@@ -1,7 +1,9 @@
 package project;
 
-public class User {
+import java.util.Date;
 
+public class User {
+    private int userId;
     String fullName;
     String emailAddress;
     String address;
@@ -10,6 +12,10 @@ public class User {
     String dob;
     String natId;
     String role;
+
+    public int getUserId() {
+        return userId;
+    }
 
     public String getFullName() {
         return fullName;
@@ -66,26 +72,29 @@ public class User {
     public void setNatId(String natId) {
         this.natId = natId;
     }
-
-    User(String fullName, String emailAddress){
-
+    public String getPassword() {
+        return password;
     }
 
-    public User(String fullName, String emailAddress, String address, String phoneNumber, String password, String dob, String natId, String role) {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public User(int userId, String fullName, String phoneNumber, String emailAddress, String address, Date dob, String nationalId, String role, String password) {
+        this.userId = userId;
         this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
-        this.dob = dob;
-        this.natId = natId;
+        this.dob = String.valueOf(dob);
+        this.natId= nationalId;
         this.role = role;
+        this.password = password;
     }
-
     User(){
 
     }
-
 
 
 }

@@ -4,7 +4,6 @@ package project;
 import com.sun.tools.javac.Main;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -190,7 +189,7 @@ public class SignUp {
 
     public User user;
 
-    private User addUserToDatabase(String fullName, String email, String address,String phone, String password,String confirm,String dob,String natId) {
+    private User addUserToDatabase(String fullName, String email, String address, String phone, String password, String confirm, String dob, String natId) {
         User user = null;
 
         try {
@@ -204,7 +203,7 @@ public class SignUp {
             preparedStatement.setString(2,phone);
             preparedStatement.setString(3,email);
             preparedStatement.setString(4,address);
-            preparedStatement.setString(5,dob);
+            preparedStatement.setString(5, String.valueOf(dob));
             preparedStatement.setString(6,natId);
             preparedStatement.setString(7,password);
 

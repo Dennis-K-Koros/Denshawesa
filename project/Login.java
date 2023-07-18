@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 public class Login {
 
@@ -77,7 +78,11 @@ public class Login {
 
         if (user != null) {
             frame.dispose();
-            MainMenu mainMenu = new MainMenu();
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    new UserProfile(connection, user.getUserId());
+                }
+            });
         } else {
             JOptionPane.showMessageDialog(null,
                     "Email or Password Invalid",
@@ -85,8 +90,8 @@ public class Login {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }
+
 
 
 
