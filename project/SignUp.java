@@ -100,6 +100,7 @@ public class SignUp {
             public void actionPerformed(ActionEvent e) {
 
                 registerUser();
+                Login login = new Login();
             }
         });
 
@@ -218,7 +219,15 @@ public class SignUp {
                 user.password = password;
                 user.dob = dob;
                 user.natId = natId;
+
+                JOptionPane.showMessageDialog(null,
+                            "Successful Registration",
+                            "Sign UP",
+                            JOptionPane.PLAIN_MESSAGE);
+
+
             }
+
 
             stmt.close();
             conn.close();

@@ -94,7 +94,7 @@ public class UserProfile{
         BackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                  MainMenu mm = new MainMenu();
             }
         });
 
