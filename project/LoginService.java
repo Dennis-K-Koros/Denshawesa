@@ -39,7 +39,7 @@ public class LoginService { private static User loggedInUser;
                 user.setPhoneNumber(resultSet.getString("PhoneNumber"));
                 user.setDob(resultSet.getString("DOB"));
                 user.setNatId(resultSet.getString("NationalId"));
-                user.setRole(resultSet.getString("Role"));
+                user.setRole(UserRole.valueOf(resultSet.getString("Role")));
 
                 return user;
             }
