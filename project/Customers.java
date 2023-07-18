@@ -71,12 +71,8 @@ public class Customers extends JFrame {
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
         // Check if the user is authenticated as admin
-        if (!isAdmin()) {
-            JOptionPane.showMessageDialog(this, "Unauthorized access");
-            Customers page = new Customers();
-            page.setVisible(true);
-        }
 
+        setVisible(true);
         loadRecords();
     }
 
@@ -227,47 +223,7 @@ public class Customers extends JFrame {
         }
     }
 
-    private boolean isAdmin() {
-        setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new GridLayout(4, 4));
-
-        JLabel usernameLabel = new JLabel("Username:");
-        JTextField usernameField = new JTextField(10);
-        panel.add(usernameLabel);
-        panel.add(usernameField);
-
-        JLabel passwordLabel = new JLabel("Password:");
-        JPasswordField passwordField = new JPasswordField(10);
-        panel.add(passwordLabel);
-        panel.add(passwordField);
-
-        int option = JOptionPane.showConfirmDialog(this, panel, "Admin Confirmation", JOptionPane.OK_CANCEL_OPTION);
-
-        if (option == JOptionPane.OK_OPTION) {
-            String username = usernameField.getText();
-            String password = new String(passwordField.getPassword());
-
-            try {
-                PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE userId = ? AND password = ? AND Role ='ADMIN'");
-                statement.setString(1, username);
-                statement.setString(2, password);
-                ResultSet resultSet = statement.executeQuery();
-
-                if (resultSet.next()) {
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(null, "Invalid admin credentials. Please try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.exit(0); // Exit the application if the admin cancels
-        }
-
-        return false;
-    }
 
     private static DefaultTableModel buildTableModel(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
