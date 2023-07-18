@@ -52,7 +52,8 @@ public class AdminMainMenu {
         traBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Code to handle transaction functionality goes here,anyone in the group can do it
+                frame.dispose();
+                AdminReturnPage arp = new AdminReturnPage();
             }
         });
 

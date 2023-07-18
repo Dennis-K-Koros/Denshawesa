@@ -3,7 +3,7 @@ package project;
 
 public class PageController {
     public void displayPage(User user) {
-        if (user.getRole() == String.valueOf(UserRole.ADMIN)) {
+        if (user.getRole() == UserRole.ADMIN) {
             displayAdminPage(user);
         } else {
             displayUserPage(user);

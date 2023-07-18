@@ -10,8 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
-
-public class AdminRentalPage {
+public class AdminReturnPage {
 
     JFrame frame;
     JTable avaTable, renTable;
@@ -20,8 +19,8 @@ public class AdminRentalPage {
     JPanel panel;
     JButton backBtn, exitBtn;
 
-    AdminRentalPage(){
-        frame = new JFrame("Car Rental");
+    AdminReturnPage(){
+        frame = new JFrame("Returned Cars");
         frame.setSize(600,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
@@ -30,7 +29,7 @@ public class AdminRentalPage {
         rentLb = new JLabel("Rented Cars");
         rentLb.setBounds(250,25,150,35);
 
-        avaLb = new JLabel("Available Cars");
+        avaLb = new JLabel("Returned Cars");
         avaLb.setBounds(250,250,150,35);
 
         renTable = new JTable();
@@ -127,7 +126,7 @@ public class AdminRentalPage {
 
         try {
             Connection conn = DbConnection.createDBConnection();
-            String sql = "SELECT * FROM cars WHERE status ='Available'";
+            String sql = "SELECT * FROM returnTable";
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -162,5 +161,5 @@ public class AdminRentalPage {
     }
 
 
-}
 
+}
