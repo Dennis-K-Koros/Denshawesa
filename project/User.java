@@ -11,7 +11,7 @@ public class User {
     String password;
     String dob;
     String natId;
-    String role;
+    UserRole role;
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -29,11 +29,11 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 
@@ -85,7 +85,7 @@ public class User {
     }
 
 
-    public User(int userId, String fullName, String phoneNumber, String emailAddress, String address, Date dob, String nationalId, String role, String password) {
+    public User(int userId, String fullName, String phoneNumber, String emailAddress, String address, Date dob, String nationalId, UserRole role, String password) {
         this.userId = userId;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;

@@ -51,7 +51,7 @@ public class MainMenu {
         traBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Code to handle transaction functionality goes here,anyone in the group can do it
+                ReturnPage rp = new ReturnPage();
             }
         });
 
