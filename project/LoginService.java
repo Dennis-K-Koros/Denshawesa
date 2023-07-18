@@ -33,6 +33,7 @@ public class LoginService { private static User loggedInUser;
 
             if (resultSet.next()){
                 User user = new User();
+                user.setUserId(resultSet.getInt("userId"));
                 user.setFullName(resultSet.getString("FullName"));
                 user.setEmailAddress(resultSet.getString("Email"));
                 user.setAddress(resultSet.getString("Address"));

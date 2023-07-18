@@ -36,13 +36,13 @@ public class MainMenu {
             }
         });
 
-        favBtn = new JButton("Customers");
+        favBtn = new JButton("UserProfile");
         favBtn.setFocusable(false);
         favBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Customers cus = new Customers();
+                UserProfile up = new UserProfile();
             }
         });
 

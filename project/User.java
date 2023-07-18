@@ -3,7 +3,7 @@ package project;
 import java.util.Date;
 
 public class User {
-    private int userId;
+    int userId;
     String fullName;
     String emailAddress;
     String address;
@@ -12,6 +12,10 @@ public class User {
     String dob;
     String natId;
     String role;
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getUserId() {
         return userId;
