@@ -313,7 +313,7 @@ public class CarRentalPage {
                     "FROM cars " +
                     "JOIN carType ON cars.typeId = carType.typeId " +
                     "JOIN carMake ON cars.makeId = carMake.makeId " +
-                    "WHERE make=? AND type=?";
+                    "WHERE status='Available' AND make=? AND type=?";
 
             Connection conn = DbConnection.createDBConnection();
             Statement stmt = conn.createStatement();
