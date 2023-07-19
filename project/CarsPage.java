@@ -212,7 +212,4 @@ public class CarsPage extends JFrame {
         return 0;
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new CarsPage());
-    }
 }
