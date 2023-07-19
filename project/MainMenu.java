@@ -36,7 +36,7 @@ public class MainMenu {
             }
         });
 
-        favBtn = new JButton("UserProfile");
+        favBtn = new JButton("Profile");
         favBtn.setFocusable(false);
         favBtn.addActionListener(new ActionListener() {
             @Override

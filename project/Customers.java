@@ -10,13 +10,10 @@ import java.time.LocalDate;
 
 
 public class Customers extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/trial";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "";
-
     private final JTable table;
     private final JButton deleteButton;
     private final JButton editButton;
+    private final JButton BackButton;
     Connection conn = DbConnection.createDBConnection();
 
     public Customers() {
@@ -32,6 +29,9 @@ public class Customers extends JFrame {
 
         editButton = new JButton("Edit");
         editButton.setEnabled(false);
+
+        BackButton = new JButton("Back");
+        BackButton.setEnabled(true);
 
         JButton addButton = new JButton("Add");
 
@@ -60,17 +60,23 @@ public class Customers extends JFrame {
                 addRecord();
             }
         });
+        BackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AdminMainMenu mm = new AdminMainMenu();
+                dispose();
+            }
+        });
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(deleteButton);
         buttonPanel.add(editButton);
         buttonPanel.add(addButton);
+        buttonPanel.add(BackButton);
 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-
-        // Check if the user is authenticated as admin
 
         setVisible(true);
         loadRecords();
@@ -222,6 +228,7 @@ public class Customers extends JFrame {
             }
         }
     }
+
 
 
 

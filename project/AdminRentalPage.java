@@ -72,7 +72,6 @@ public class AdminRentalPage {
         panel.setBounds(200,480,200,25);
         panel.setLayout(new GridLayout(1,2,10,10));
         panel.add(backBtn);
-        panel.add(exitBtn);
 
         getRentRecords();
         getAvailableRecords();

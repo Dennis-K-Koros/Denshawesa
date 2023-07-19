@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class UserProfile{
+public class AdminProfile{
 
     private JFrame frame ;
     private JLabel titleLabel,fullNameLabel,phoneNumberLabel,emailLabel,addressLabel,dobLabel,nationalIdLabel;
@@ -16,7 +16,7 @@ public class UserProfile{
     private User user;
 
 
-    public UserProfile() {
+    public AdminProfile() {
 
 
         frame = new JFrame("User Profile");
@@ -94,8 +94,8 @@ public class UserProfile{
         BackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                  MainMenu mm = new MainMenu();
-                  frame.dispose();
+                AdminMainMenu mm = new AdminMainMenu();
+                frame.dispose();
             }
         });
 

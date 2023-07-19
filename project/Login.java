@@ -55,7 +55,7 @@ public class Login {
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                SignUp sp = new SignUp();
             }
         });
         btn1.addActionListener(new ActionListener() {

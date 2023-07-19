@@ -91,7 +91,7 @@ public class ReturnPage{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                StartUpPage sup = new StartUpPage();
+               MainMenu mm = new MainMenu();
             }
         });
 

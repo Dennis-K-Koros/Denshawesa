@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class AdminMainMenu {
     JFrame frame;
     JPanel panel;
-    JButton poBtn,orBtn,favBtn,traBtn;
+    JButton poBtn,orBtn,favBtn,traBtn,pBtn;
 
     AdminMainMenu(){
         frame = new JFrame();
@@ -56,14 +56,24 @@ public class AdminMainMenu {
                 AdminReturnPage arp = new AdminReturnPage();
             }
         });
+        pBtn = new JButton("profile");
+        pBtn.setFocusable(false);
+        pBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                AdminProfile pro = new AdminProfile();
+            }
+        });
 
         panel = new JPanel();
-        panel.setBounds(10,20,430,50);
+        panel.setBounds(10,20,430,70);
         panel.setLayout(new FlowLayout());
         panel.add(poBtn);
         panel.add(orBtn);
         panel.add(favBtn);
         panel.add(traBtn);
+        panel.add(pBtn);
 
         frame.add(panel);
         frame.setVisible(true);

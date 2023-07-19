@@ -27,7 +27,7 @@ public class StartUpPage {
         jlWelcome1.setFont(new Font("Arial",Font.BOLD,30));
         jlWelcome1.setBounds(75,150,350,50);
 
-        jlText = new JLabel("Is this your first time or are you Member? click the right Button");
+        jlText = new JLabel("Is this your first time or are you Member? click the SignUp Button");
         jlText.setFont(new Font("Arial",Font.PLAIN,12));
         jlText.setBounds(60,200,350,50);
 
